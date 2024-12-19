@@ -1,0 +1,1041 @@
+/*https://coolors.co/2e4242-4d6864-101516-000000-85a192-b7ccc7*/
+/*https://coolors.co/0c204b-2660a6-472281-1b4588-a1a7cb*/
+
+
+*{
+    color: antiquewhite;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 40px;
+    
+}
+
+i{
+    font-size: 20px;
+    color: antiquewhite;
+}
+
+a:hover{
+    color: #A27EDD;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+}
+
+#topInfo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #A27EDD;
+    padding: 5px 0 5px 0;
+}
+
+#topInfo a{
+    color: black;
+}
+
+#topInfo>div{
+    display: flex;
+    gap: 10px;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+#topInfo > div > a {
+    text-decoration: none;
+}
+
+#topInfo > div > a > i{
+    color: black;
+}
+
+header{
+    min-width: 100%;
+    border-bottom:1px solid #472281;
+    background-color: black;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.7rem 0 0.7rem 0;
+    gap: 2rem;
+    position:sticky;
+    top: 0;
+    z-index: 3000;
+}
+
+header > div{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+header > div > a{
+    text-decoration: none;
+}
+#logoDiv{
+    align-items: center;
+    width: 300px;
+}
+
+#logoDiv > a{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+#logoDiv > a > h2{
+    width: 100px;
+}
+
+#logoIcon{
+    width: 30%;
+    height: 30%;
+}
+
+#campoPesquisa{
+    display: flex;
+    min-width: 100px;
+    width: 60%;
+    background-color: black;
+    border: #472281 solid 2px;
+    border-radius: 10px;
+    padding-right: 0;
+    flex-direction: row;
+}
+
+#campoPesquisa > input[type= text]{
+    min-width: 100px;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    background-color: black;
+    justify-content: center;
+    transition: 0.7s;
+    font-size: 20px;
+    font-family: serif;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    text-decoration: none;
+    outline: 0;
+}
+
+#campoPesquisa > input[type= text]::placeholder {
+    font-size: 17px;
+    padding: 3px;
+    color: antiquewhite;
+    font-family: serif;
+}
+
+
+#campoPesquisa > button{
+    display: flex;
+    background-color: black;
+    color: antiquewhite;
+    border-radius: 0 10px 10px 0;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    width: 50px;
+    border: none;
+}
+
+#campoPesquisa > button:hover{
+    background-color: #472281;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
+#campoPesquisa > button> i:hover{
+    background-color: #472281;
+    cursor: pointer;
+}
+
+#linksRapidos{
+display: flex;
+width: 150px;
+height: 50px;
+justify-content: space-between;
+align-items: center;
+}
+
+main{
+    width: 100%;
+    align-items: center;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#bannerSlides{
+    display: flex;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to top, transparent 25%, black 100%);
+    margin-bottom: -100px;
+}
+
+.bannerTop{
+    width: 100%;
+}
+
+main > section{
+    display:flex;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main > section > nav{
+    margin-bottom: 3rem;
+}
+
+.linkPrincipais{
+    display: flex; 
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    z-index: 2000;
+    justify-content: space-around;
+}
+
+
+.linkPrincipais i{
+    font-size: 130px;
+}
+ 
+.principaisNav-item{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 300px;
+    border: #A27EDD 2px solid;
+    border-radius: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding:0.6rem;
+    gap: 10px;
+    z-index: 2900;
+    text-decoration: none;
+    transition: 0.3s;
+    transform: ease;
+}
+
+.principaisNav-item:hover{
+    background-color:#472281;
+    border: #472281 2px solid;
+}
+
+.containerProdutosDestaques{
+    display: flex;
+    flex-direction:column;
+    border: #A27EDD 2px solid;
+    border-radius: 2rem;
+    gap: 0.5rem;
+    width: 100%;
+    flex-wrap: wrap;
+    min-height: 250px;
+    height: 100%;
+    max-height: 100%;
+    padding: 2.3rem;
+    align-items: center;
+}
+.containerProdutosDestaques > div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.listaProdutosDestaque{
+
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+
+.produtosDestaques{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    min-height:400px;
+    height: 400px;
+    gap: 10px;
+    text-decoration: none;
+    border-radius: 1rem;
+    border: #A27EDD 1px solid;
+    transition: 0.4s;
+    transform: ease;
+    align-content:center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.produtosDestaques:hover{
+    background-color:#6A33C1;
+    border: #6A33C1 1px solid;
+}
+
+.produtosDestaques > a> img{
+  width: 12rem;
+  height: 12rem;
+  margin-top: -30px;
+}
+
+.infosPrincNav{
+  width: 90%;
+  height: 50px;
+  text-align: left;
+  padding-left: 1.5rem;
+  z-index: 2000;
+}
+
+.infosPrincNav>a{
+  display:-webkit-box;
+  line-height: 1;
+  width: 75%;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient:vertical;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.produtosDestaques:hover .infosPrincNav>a{
+    color: #07080D;
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+.favCarrinho{
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 50%;
+  text-align: left;
+  margin: 10px;
+}
+
+.favCarrinho a{
+  display: flex;
+  text-decoration: none;
+  color: antiquewhite;
+}
+
+.favCarrinho a>i{
+ 
+  font-size: 30px;
+}
+
+.favCarrinho>a>i:hover{
+  color: #07080D;
+  
+}
+
+.promocaoProdutosDestaques{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    width: 80%;
+}
+
+.promocaoProdutosDestaques > p{
+    font-size: 13px;
+}
+
+.numPromo{
+    width: 50px;
+    height: 30px;
+    padding: 8px;
+    text-align: center;
+    background-color: #8BB3E5;
+    color:black;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    align-content: center;
+}
+.barraDivisaProdutosDestaque{
+    width: 3px;
+    height: 250px;
+    background-color:#8BB3E5 ;
+    border-radius: 5px;
+    
+}
+
+.produtosDestaques .infosPrincNav>p{
+    display:-webkit-box;
+    line-height: 1.50;
+    width: 85%;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient:vertical;
+    overflow: hidden;
+    
+}
+
+
+.quedaPrecos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.quedaPrecos h4{
+    color: rgb(238, 62, 62);
+    text-decoration: line-through;
+}
+
+#melhroAvaliados{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: start;
+    margin-top: 50px;
+    padding: 5rem;
+    border: #8BB3E5 2px solid;
+    border-radius: 1rem;
+    justify-content: center;
+    gap: 10px;
+}
+
+#nomeListaPordutosGerais{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+#nomeListaPordutosGerais >i{
+    font-size: 30px;
+    color: #ffd60a;
+}
+.produtosGerais{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+}
+
+
+#mainLogin{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+#cadastro{
+    width: 70%;
+}
+
+.loginCadastro{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    padding-top: 1.5rem;
+    width: 400px;
+    border:2px solid #A27EDD;
+    border-radius: 20px;
+    gap: 0.5rem;
+    
+}
+
+.tituloLogin{
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #A27EDD;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+#formLogin{
+    width: 100%;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+}
+
+label{
+    font-size: 25px;
+    font-weight: 1000;
+}
+
+input[type = text], input[type = password], input[type= email],input[type= hidden],input[type= number],input[type= file] select, option{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #A27EDD;
+    border-radius: 1rem;
+    background-color: black;
+    padding: 5px;
+}
+
+input::placeholder {
+    font-size: 12px;
+    padding: 5px;
+    color: antiquewhite;
+    font-family: serif;
+}
+
+input[type = submit]{
+    display: flex;
+    width: 50%;
+    height: 50px;
+    border: 1px solid #A27EDD;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: black;
+    justify-content: center;
+    transition: 0.7s;
+    font-family: serif;
+    font-size: 19px;
+}
+
+input[type= submit]:hover{
+    background-color: #A27EDD;
+    border-color: #A27EDD;
+    font-weight: 900;
+    font-size: 30px;
+    color: black;
+
+}
+.logarEsenha{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.buttonTipo1{
+    width: 150px;
+    height: 70px;
+    background-color: black;
+    border: #472281 2px solid;
+    border-radius: 10px;
+    color: antiquewhite;
+    font-size: 30px;
+    font-family: serif;
+    color: antiquewhite;
+    cursor: pointer;
+    transition: 0.5s;
+    transition: ease-in-out;
+}
+
+.buttonTipo1:hover{
+    background-color: #C4AFE9;
+    border-color: #C4AFE9;
+    color: black;
+    font-weight: 1000;
+
+}
+
+.vinilTamanho{
+    width: 10rem;
+    border-radius: 10px;
+    border: #A27EDD 1px solid;
+    
+}
+
+.mudaTmnImg{
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: transform .8s ease;
+ }
+ 
+ .mudaTmnImg:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+ } 
+
+ #sobreMain{
+    width: 80%;
+    gap: 1rem;
+
+ }
+
+#tituloSobre{
+    background-color: #472281;
+    font-size: 70px;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-weight: bolder;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+ #sobreMain p{
+    font-size: 30px;
+ }
+
+ #sobreMain > div {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-bottom: 2px #472281 solid;
+    gap: 20px;
+ }
+ 
+ #sobreMain > div > #logoeTexto{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+ }
+
+#bannerLinkSobre {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+#bannerLinkSobre> a >img{
+    width: 550px;
+}
+
+  
+  /* Tabela */
+  table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    background: #fff;
+    margin: 1rem;
+    width: 80%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  table thead {
+    
+    color: white;
+    width: 70%;
+  }
+  
+table tbody{
+  border-radius: 1rem;
+}
+
+  table tbody tr {
+    border-bottom: 1px solid black;
+
+  }
+  
+  /*table tbody tr:nth-child(even) {
+    background: none;
+  }*/
+
+  table tbody tr td{
+    color: black;
+  }
+  
+  table th {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background: #472281;
+  }
+  
+  table tbody td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  table tbody td:last-child {
+    text-align: center;
+  }
+  
+  table tbody td img {
+    max-width: 80px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .excluir,
+  .editar {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .editar {
+    background: #2196f3;
+  }
+  
+  .excluir:last-child {
+    background: #f44336;
+  }
+  
+  .excluir:hover,
+  .editar:hover {
+    opacity: 0.8;
+  }
+  
+
+footer{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    border-top: #472281 2px solid;
+    margin-top: 30px;
+    padding-top: 1rem;
+}
+
+footer > section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    width: 100%;
+    
+    padding-bottom: 4rem;
+}
+
+footer > section >div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+footer a{
+    text-decoration: none;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 5px;
+}
+
+#direitos{
+    justify-content: center;
+    gap: 1rem;
+    color:antiquewhite;
+    background-color: #472281;
+    padding-bottom: 1rem;
+
+    padding-top: 0.5rem;
+}
+
+
+/*adição de produtos gerenciamento*/
+   
+  /* Formulário */
+  
+  /* Estilo para o conteúdo normal da página */
+  .content {
+    position: relative;
+    z-index: 1; /* Fica atrás da máscara */
+    left: 12%;
+    width: 85%;
+  }
+  
+  /* Definindo a máscara */
+  .mask-visible {
+    display: block;
+  }
+  
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Cor da máscara com opacidade */
+    z-index: 10; /* Coloca a máscara na frente do conteúdo */
+    display: none; /* Inicialmente escondida */
+  }
+  
+  /* Estilo para a sobreposição */
+  .overlay-visible {
+    display: flex;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20; /* Garante que o modal fique acima da máscara */
+    display: none; /* Inicialmente escondida */
+  }
+  
+  /* Estilo para o modal (formulário) */
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 30; /* Garante que o modal fique sobre a máscara */
+    width: 30%; /* Largura do modal */
+    text-align: center;
+  }
+  
+  .close {
+    display: block;
+    background: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    border-color: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 31;
+    color: white;
+    padding: 0;
+  }
+  
+  .close:hover {
+    background: darkred;
+  }
+  
+  .close span {
+    font-size: 40px;
+    padding: 5px;
+    margin: 0;
+  }
+  
+  .btn-add {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-add:hover {
+    background-color: #45a049;
+  }
+  
+  .produtoForm {
+    display: flex;
+    height: 80%;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+  }
+  
+  .produtoForm label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .produtoForm input[type="text"],
+  .produtoForm input[type="number"],
+  .produtoForm input[type="file"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .produtoForm button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    /* margin-top: 30px; */
+    transition: background 0.3s;
+  }
+  
+  .produtoForm button[type="submit"] {
+    background: #4caf50;
+  }
+  
+  .produtoForm button[type="submit"]:hover {
+    background: #45a049;
+  }
+  
+  .produtoForm button[type="button"] {
+    background-color: red;
+  }
+  
+  .produtoForm button[type="button"]:hover {
+    background-color: darkred;
+  }
+  
+  .produtoForm img {
+    display: block;
+    margin: 10px 0;
+    max-width: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  } 
+  
+  .menu-lateral {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    border-right: 1px solid black;
+    width: 150px;
+    height: 100%;
+  }
+  
+  .user-img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin: 10px 25px;
+  }
+  
+  .user {
+    padding: 10px 30px;
+    margin: 0;
+  }
+  
+  .logoff {
+    background: #af0000;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px;
+    width: 90%;
+    margin: auto 8px;
+    cursor: pointer;
+    border: 1px solid #8b0000;
+    border-radius: 4px;
+  }
+  
+  .logoff:hover {
+    opacity: 0.8;
+  }
+  
+  /* Tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  table thead {
+    background: #4caf50;
+    color: white;
+  }
+  
+  table tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  table th {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  table tbody td {
+    padding: 10px;
+  }
+  
+  table tbody td:last-child {
+    text-align: center;
+  }
+  
+  table tbody td img {
+    max-width: 80px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+  }
+  .excluir,
+  .editar {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .editar {
+    background: #2196f3;
+  }
+  
+  .excluir:last-child {
+    background: #f44336;
+  }
+  
+  .excluir:hover,
+  .editar:hover {
+    opacity: 0.8;
+  }
+  
