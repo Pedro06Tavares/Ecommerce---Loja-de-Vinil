@@ -1,8 +1,24 @@
 <?php
 session_start(); // Inicia a sessão
-
+global $conn;
 include '../../../config.php';
 include '../processos/processaCarrinho.php';
+include '../processos/processaProdutos.php';
+if(isset($_GET['qntd'])){
+    $quantidade=$_GET['qntd'];
+    $id = $_GET['id-produto'];
+    mudaQntd($id,$quantidade);
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit();
+}
+
+// Verificar se foi pedido para excluir um produto
+if (isset($_GET['retirar-produto'])) {
+    $id = $_GET['retirar-produto'];
+    retiraCarrinho($id);
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit();
+  }
 
 ?>
 
@@ -22,9 +38,10 @@ include '../processos/processaCarrinho.php';
         href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel="stylesheet" href="../../../style.css">
 
-    <title>Home</title>
+    <title>Carrinho</title>
 </head>
 
 <body>
@@ -67,20 +84,25 @@ include '../processos/processaCarrinho.php';
            <!-- Tabela de exibição dos produtos -->
             <?php
             // Dentro da exibição da lista de produtos
-            
+            $valorCompra = 0;
             $produtos = listarCarrinho();
                 if ($produtos->num_rows > 0) {
                     while ($produto = $produtos->fetch_assoc()) {
-                        $valorFinal = $produto['preco'] - $produto['desconto'];
+                        $valorFinal = calculaValorAtual($produto['preco'],$produto['desconto']);
+                        
+                        $valorCompra =$valorCompra+($valorFinal*$produto['quantidadeProduto']);
                         echo "<tr>
                                 <td><img src='../../imgs/produtos/{$produto['imagem']}' alt='Imagem do produto' />
                                 </td>
                                 <td>{$produto['nome']}</td>
                                 <td>R$ {$valorFinal}</td>
-                                <td><form action><input value='{$produto['quantidadeProduto']}' type='number'></form></td>
+                                <td><form action='{$_SERVER["PHP_SELF"]}' method='GET'>
+                                    <input value='{$produto['id']}' type='hidden'  name='id-produto' id='id-produto'>   
+                                    <input value='{$produto['quantidadeProduto']}' type='number'  name='qntd' id='qntd' min='1'>
+                                </form></td>
                                 
                                 <td>
-                                    <a href='?adicionar_carrinho={$produto['id']}&quantidade=1'>Adicionar ao Carrinho</a>
+                                    <a href='?retirar-produto={$produto['id']}'><i class=\"fi fi-rs-trash\"></i></a>
                                 </td>
                             </tr>";
                     }
@@ -89,10 +111,29 @@ include '../processos/processaCarrinho.php';
                     echo "<tr><td colspan='8'>Nenhum produto No Carrinho.</td></tr>";
                 }
         ?>
-        
             
         </tbody>
         </table>
+
+        <div class="finalCarrinho">
+            <div>
+                <h4>Digite o CEP</h4>
+                <form action="#">
+                    <input type="text" name="cep" id="cep" placeholder="Ex.:37713308">
+                </form>
+            </div>
+            <div >
+                <h4>Total: </h4>
+                <?php
+                    echo "<h1>".number_format($valorCompra, 2, '.', '')."</h1>";
+                ?>
+            </div>
+        </div>
+
+        <div class="finalizar">
+            <a href="../../../index.php">Ver Mais Produtos</a>
+            <a href="">Finalizar</a>
+        </div>
 
         </section>
     </main>
@@ -133,8 +174,8 @@ include '../processos/processaCarrinho.php';
             <div>
                 <h3>Adiministrador</h3>
                 <ul>
-                    <li><a href="perfilAdm.html" target="_blank">Perfil Adiministrador</a></li>
-                    <li><a href="gerenciamentoTeste.php" target="_blank">Gerenciamento</a></li>
+                    <li><a href="../adm/perfilAdm.html">Perfil Adiministrador</a></li>
+                    <li><a href="../adm/gerenciamentoTeste.php" >Gerenciamento</a></li>
                     
 
                 </ul>

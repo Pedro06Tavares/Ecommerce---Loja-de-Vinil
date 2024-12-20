@@ -49,4 +49,29 @@ function listarCarrinho()
   $result = $conn->query($sql);
   return $result;
 }
+
+
+function mudaQntd($id, $qntd){
+    global $conn;
+    $sql = "UPDATE carrinho SET quantidadeProduto = '$qntd' WHERE id = '$id'";
+    if($conn->query($sql) === TRUE){
+        return 1;
+    }
+
+    else{
+        return 0;
+    }
+}
+
+function retiraCarrinho($id){
+    global $conn;
+    $sql = "DELETE FROM carrinho WHERE id = $id";
+    if($conn->query($sql) === TRUE){
+        return 1;
+    }
+
+    else{
+        return 0;
+    }
+}
 ?>
