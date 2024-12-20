@@ -262,13 +262,25 @@ if (!empty($_GET['adicionar_carrinho'])) {
                                             echo "<h4>R$ {$produto['preco']}</h4>";
                                         }
 
-                                        echo "</div>
-                                        <div class=\"favCarrinho\">
-                                            <a href=\"./section/paginas/usuario/listaDesejo.html\"><i class=\"fi fi-rs-heart\"></i></a>
-                                            <a href=\"./section/paginas/usuario/carrinho.html\"><i
-                                                    class=\"fi fi-rr-shopping-cart-add\"></i></a>
-                                        </div>
-                                    </div>
+                                        if (empty($_SESSION['login'])) {
+                                            echo "</div>
+                                            <div class=\"favCarrinho\">
+                                                <a href=\"./section/paginas/geral/login.php\"><i class=\"fi fi-rs-heart\"></i></a>
+                                                <a href=\"./section/paginas/geral/login.php\"><i
+                                                        class=\"fi fi-rr-shopping-cart-add\"></i></a>
+                                            </div>";
+                                        } else {
+                                            
+                                            echo"</div>
+                                            <div class=\"favCarrinho\">
+                                                <a href=\"./section/paginas/usuario/listaDesejo.html\"><i class=\"fi fi-rs-heart\"></i></a>
+                                                <a href=\"?adicionar_carrinho={$produto['id']}'\"><i
+                                                        class=\"fi fi-rr-shopping-cart-add\"></i></a>
+                                            </div>";
+                                        }
+
+                                       
+                                  echo" </div>
                                 </div>";
                             if($i<sizeof($idsProdutos)-1 && sizeof($idsProdutos) > 1 ){
                                 echo "<div class=\"barraDivisaProdutosDestaque\"></div>";

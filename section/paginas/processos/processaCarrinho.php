@@ -1,44 +1,33 @@
 <?php
-
-
-/*
-function adicionarAoCarrinho($id, $nome, $preco, $quantidade = 1) {
-    // Se o produto já estiver no carrinho, incrementa a quantidade
-    foreach ($_SESSION['carrinho'] as $key => $produto) {
-        if ($produto['id'] == $id) {
-            $_SESSION['carrinho'][$key]['quantidade'] += $quantidade;
-            return;
-        }
-    }
-    
-    // Caso o produto não esteja no carrinho, adiciona um novo item
-    $novoProduto = [
-        'id' => $id,
-        'nome' => $nome,
-        'preco' => $preco,
-        'quantidade' => $quantidade
-    ];
-    
-    $_SESSION['carrinho'][] = $novoProduto;
-    header('location:./section/paginas/usuario/carrinho.php');
-    exit();
-}
-*/
-
 function adcCarrinho($id){
     global $conn;
     $qntd = 1;
     $identificador = $id;
-   // $sql = "INSERT INTO carrinho (id,quantidadeProduto) VALUES ('$id','$qntd')";
+
+    //bolar um jeito de saber se o produto já foi adicionado no carrinho
+
     $sql = "INSERT INTO carrinho (id,quantidadeProduto ) 
               VALUES ($identificador, $qntd)";
-    if($conn->query($sql) === TRUE){
-        return 1;
-    }
 
-    else{
-        return 0;
-    }
+
+        if($conn->query($sql) === TRUE){
+            $sql = "SELECT * FROM produtos WHERE id='$identificador'";
+            $result = $conn->query($sql);
+            $produto = mysqli_fetch_assoc($result);
+            $quantidade= $produto['quantidade'] - $qntd;
+            $sql = "UPDATE produtos SET quantidade = '$quantidade' WHERE id = '$id'";
+            if($conn->query($sql) === TRUE){
+                return 1;
+            }
+            
+        }
+
+        else{
+            
+            return 0;
+        }
+       
+    
 }
 
 function listarCarrinho()
@@ -61,6 +50,8 @@ function mudaQntd($id, $qntd){
     else{
         return 0;
     }
+
+    //criar um esquema que ao mudar a quantidade eu posso ver a quantidade antiga e subtrairr apenoas nova quantidade acrescentada do produtos
 }
 
 function retiraCarrinho($id){
@@ -73,5 +64,7 @@ function retiraCarrinho($id){
     else{
         return 0;
     }
+
+    // repor a quantidade reservada 
 }
 ?>
