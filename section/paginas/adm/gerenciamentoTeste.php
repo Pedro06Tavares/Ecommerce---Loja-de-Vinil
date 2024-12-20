@@ -75,9 +75,28 @@ if (isset($_GET['excluir'])) {
     </div>
 
     <div id="linksRapidos">
-      <a href="../usuario/listaDesejo.html"><i class="fi fi-rs-heart"></i></a>
-      <a href="../usuario/carrinho.html"><i class="fi fi-rr-shopping-cart-add"></i></a>
-      <a href="../usuario/usuario.html"><i class="fi fi-rs-user"></i></a>
+    <?php
+
+        if (empty($_SESSION['login'])) {
+            echo "<a href=\"../geral/login.php\"><i class=\"fi fi-rs-heart\"></i></a>";
+            echo "<a href=\"../geral/login.php\"><i class=\"fi fi-rr-shopping-cart-add\"></i></a>";
+            echo "<a href=\"../geral/login.php\"><i class=\"fi fi-rs-user\"></i></a>";
+            
+
+        } else {
+            echo "<a href=\"../usuario/listaDesejo.php\"><i class=\"fi fi-rs-heart\"></i></a>
+            <a href=\"../usuario/carrinho.php\"><i class=\"fi fi-rr-shopping-cart-add\"></i></a>";
+            if (!empty($_SESSION['email'])) {
+                if ($_SESSION['email'] == "adm@adm.com") {
+                    echo "<a href=\"../adm/perfilAdm.php\"><i class=\"fi fi-rs-user\"></i></a>";
+                } else {
+                    echo "<a href=\"../usuario/usuario.php\"><i class=\"fi fi-rs-user\"></i></a>";
+                }
+            }
+
+        }
+
+        ?>
     </div>
   </header>
   <?php if ($statusMessage): ?>
@@ -249,9 +268,9 @@ if (isset($_GET['excluir'])) {
       <div>
         <h3>Usuário</h3>
         <ul>
-          <li><a href="../usuario/usuario.html">Minha Conta</a></li>
-          <li><a href="../usuario/carrinho.html">Carrinho</a></li>
-          <li><a href="../usuario/listaDesejo.html">Lista de Desejos</a></li>
+          <li><a href="../usuario/usuario.php">Minha Conta</a></li>
+          <li><a href="../usuario/carrinho.php">Carrinho</a></li>
+          <li><a href="../usuario/listaDesejo.php">Lista de Desejos</a></li>
           <li><a href="../geral/login.php">Login</a></li>
           <li><a href="../geral/cadastro.html">Cadastro</a></li>
           <li><a href="../../../config.php">Config</a></li>
@@ -272,8 +291,8 @@ if (isset($_GET['excluir'])) {
       <div>
         <h3>Adiministrador</h3>
         <ul>
-          <li><a href="perfilAdm.html" target="_blank">Perfil Adiministrador</a></li>
-          <li><a href="gerenciamentoTeste.php" target="_blank">Gerenciamento</a></li>
+          <li><a href="perfilAdm.html">Perfil Adiministrador</a></li>
+          <li><a href="gerenciamentoTeste.php" >Gerenciamento</a></li>
 
 
         </ul>

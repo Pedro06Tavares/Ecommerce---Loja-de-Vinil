@@ -58,7 +58,7 @@ if (!empty($_GET['adicionar_carrinho'])) {
 
     <header>
         <div id="logoDiv">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="./section/imgs/logo/logoLoja.jpg" alt="" id="logoIcon">
             </a>
         </div>
@@ -69,14 +69,17 @@ if (!empty($_GET['adicionar_carrinho'])) {
         </form>
 
         <div id="linksRapidos">
-            <a href="./section/paginas/usuario/listaDesejo.html"><i class="fi fi-rs-heart"></i></a>
-            <a href="./section/paginas/usuario/carrinho.html"><i class="fi fi-rr-shopping-cart-add"></i></a>
             <?php
 
             if (empty($_SESSION['login'])) {
+                echo "<a href=\"./section/paginas/geral/login.php\"><i class=\"fi fi-rs-heart\"></i></a>";
+                echo "<a href=\"./section/paginas/geral/login.php\"><i class=\"fi fi-rr-shopping-cart-add\"></i></a>";
                 echo "<a href=\"./section/paginas/geral/login.php\"><i class=\"fi fi-rs-user\"></i></a>";
+                
 
             } else {
+                echo "<a href=\"./section/paginas/usuario/listaDesejo.html\"><i class=\"fi fi-rs-heart\"></i></a>
+                <a href=\"./section/paginas/usuario/carrinho.php\"><i class=\"fi fi-rr-shopping-cart-add\"></i></a>";
                 if (!empty($_SESSION['email'])) {
                     if ($_SESSION['email'] == "adm@adm.com") {
                         echo "<a href=\"./section/paginas/adm/perfilAdm.html\"><i class=\"fi fi-rs-user\"></i></a>";
@@ -106,16 +109,24 @@ if (!empty($_GET['adicionar_carrinho'])) {
                         <h2>R$ 100,00</h2>
                     </div>
                 </a>
-
-                <a href="" class="principaisNav-item">
-                    <h2>Sugerido</h2>
-                    <img src="./section/imgs/albuns/bella.jpg" alt="Vinil Bella e O Olmo da Bruxa"
-                        class="vinilTamanho mudaTmnImg">
-                    <div class="infosPrincNav">
-                        <p>Autoentitulado - Bella e o Olmo da Bruxa</p>
-                        <h2>R$ 120,00</h2>
-                    </div>
-                </a>
+                <?php
+                    $produtos = embaralhaIds();
+                    $sql="SELECT * FROM produtos WHERE id='{$produtos[0]}'";
+                    $result= $conn->query($sql);
+                    $produto = mysqli_fetch_assoc($result);
+                    $valor = calculaValorAtual($produto['preco'],$produto['desconto']);
+                    echo " <a href=\"\" class=\"principaisNav-item\">
+                            <h2>Sugerido</h2>
+                            <img src=\"./section/imgs/produtos/{$produto['imagem']}\"
+                                class=\"vinilTamanho mudaTmnImg\">
+                            <div class=\"infosPrincNav\">
+                                <p>{$produto['nome']}</p>
+                                <h2>{$valor}</h2>
+                            </div>
+                        </a>
+                    ";
+                ?>
+                
 
                 <a href="" class="principaisNav-item">
                     <h2>Ofertas</h2>
@@ -179,13 +190,25 @@ if (!empty($_GET['adicionar_carrinho'])) {
                                             echo "<h4>R$ {$produto['preco']}</h4>";
                                         }
 
-                                        echo "</div>
-                                        <div class=\"favCarrinho\">
-                                            <a href=\"./section/paginas/usuario/listaDesejo.html\"><i class=\"fi fi-rs-heart\"></i></a>
-                                            <a href=\"?adicionar_carrinho={$produto['id']}'\"><i
-                                                    class=\"fi fi-rr-shopping-cart-add\"></i></a>
-                                        </div>
-                                    </div>
+                                        if (empty($_SESSION['login'])) {
+                                            echo "</div>
+                                            <div class=\"favCarrinho\">
+                                                <a href=\"./section/paginas/geral/login.php\"><i class=\"fi fi-rs-heart\"></i></a>
+                                                <a href=\"./section/paginas/geral/login.php\"><i
+                                                        class=\"fi fi-rr-shopping-cart-add\"></i></a>
+                                            </div>";
+                                        } else {
+                                            
+                                            echo"</div>
+                                            <div class=\"favCarrinho\">
+                                                <a href=\"./section/paginas/usuario/listaDesejo.html\"><i class=\"fi fi-rs-heart\"></i></a>
+                                                <a href=\"?adicionar_carrinho={$produto['id']}'\"><i
+                                                        class=\"fi fi-rr-shopping-cart-add\"></i></a>
+                                            </div>";
+                                        }
+
+                                       
+                                  echo" </div>
                                 </div>";
                             if($i<sizeof($idsProdutos)-1 && sizeof($idsProdutos) > 1 ){
                                 echo "<div class=\"barraDivisaProdutosDestaque\"></div>"; // barrinha azul daora
@@ -274,9 +297,9 @@ if (!empty($_GET['adicionar_carrinho'])) {
             <div>
                 <h3>Usuário</h3>
                 <ul>
-                    <li><a href="./section/paginas/usuario/usuario.html">Minha Conta</a></li>
-                    <li><a href="./section/paginas/usuario/carrinho.html">Carrinho</a></li>
-                    <li><a href="./section/paginas/usuario/listaDesejo.html">Lista de Desejos</a></li>
+                    <li><a href="./section/paginas/usuario/usuario.php">Minha Conta</a></li>
+                    <li><a href="./section/paginas/usuario/carrinho.php">Carrinho</a></li>
+                    <li><a href="./section/paginas/usuario/listaDesejo.php">Lista de Desejos</a></li>
                     <li><a href="./section/paginas/geral/login.php">Login</a></li>
                     <li><a href="./section/paginas/geral/cadastro.html">Cadastro</a></li>
 
@@ -298,7 +321,7 @@ if (!empty($_GET['adicionar_carrinho'])) {
                 echo "<div>
                     <h3>Adiministrador</h3>
                     <ul>
-                        <li><a href=\"./section/paginas/adm/perfilAdm.html\" >Perfil Adiministrador</a></li>
+                        <li><a href=\"./section/paginas/adm/perfilAdm.php\" >Perfil Adiministrador</a></li>
                         <li><a href=\"./section/paginas/adm/gerenciamentoTeste.php\">Gerenciamento</a></li>
                         
 

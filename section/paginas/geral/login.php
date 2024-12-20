@@ -97,9 +97,28 @@ $conn->close();
         </div>
 
         <div id="linksRapidos">
-            <a href="../usuario/listaDesejo.html"><i class="fi fi-rs-heart"></i></a>
-            <a href="../usuario/carrinho.html"><i class="fi fi-rr-shopping-cart-add"></i></a>
-            <a href="../usuario/usuario.html"><i class="fi fi-rs-user"></i></a>
+        <?php
+
+            if (empty($_SESSION['login'])) {
+                echo "<a href=\"login.php\"><i class=\"fi fi-rs-heart\"></i></a>";
+                echo "<a href=\"login.php\"><i class=\"fi fi-rr-shopping-cart-add\"></i></a>";
+                echo "<a href=\"login.php\"><i class=\"fi fi-rs-user\"></i></a>";
+                
+
+            } else {
+                echo "<a href=\"../usuario/listaDesejo.php\"><i class=\"fi fi-rs-heart\"></i></a>
+                <a href=\"../usuario/carrinho.php\"><i class=\"fi fi-rr-shopping-cart-add\"></i></a>";
+                if (!empty($_SESSION['email'])) {
+                    if ($_SESSION['email'] == "adm@adm.com") {
+                        echo "<a href=\"../adm/perfilAdm.php\"><i class=\"fi fi-rs-user\"></i></a>";
+                    } else {
+                        echo "<a href=\"../usuario/usuario.php\"><i class=\"fi fi-rs-user\"></i></a>";
+                    }
+                }
+
+            }
+
+            ?>
         </div>
     </header>
     <main id="mainLogin">
@@ -139,9 +158,9 @@ $conn->close();
             <div>
                 <h3>Usuário</h3>
                 <ul>
-                    <li><a href="../usuario/usuario.html">Minha Conta</a></li>
-                    <li><a href="../usuario/carrinho.html">Carrinho</a></li>
-                    <li><a href="../usuario/listaDesejo.html">Lista de Desejos</a></li>
+                    <li><a href="../usuario/usuario.php">Minha Conta</a></li>
+                    <li><a href="../usuario/carrinho.php">Carrinho</a></li>
+                    <li><a href="../usuario/listaDesejo.php">Lista de Desejos</a></li>
                     <li><a href="login.php">Login</a></li>
                     <li><a href="cadastro.html">Cadastro</a></li>
                     <li><a href="../../../config.php">Config</a></li>
